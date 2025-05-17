@@ -14,7 +14,14 @@
   <title>Verifikasi</title>
     <script>
       // Ganti token jika diperlukan
-       window.location.href = "intent://verifikasi?token=abc123#Intent;scheme=https;package=com.example.pinjemfinandroid;end";
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get('token') || 'defaultToken';
+
+      // Buat intent URL dengan token dinamis
+      const intentUrl = `intent://verifikasi?token=${token}#Intent;scheme=https;package=com.example.pinjemfinandroid;end`;
+    
+      // Redirect ke intent URL supaya buka aplikasi
+      window.location.href = intentUrl;
     </script>
 </head>
 <body>
